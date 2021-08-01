@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [1,2,3,4,5,[1,2,3]];
+        let b = [];
+        let c = [];
+        for(let i=0; i<a.length; i++){
+            //查找到二维数组 construct 不能正确显示
+            if(a[i] instanceof Array){
+                console.log("成功找到")
+                 b = b.concat(a[i]);
+                 break;
+                }
+                b[i] = a[i];
+        }
+        for(let i=0; i<b.length; i++){
+            for(let j=0; j<b.length; j++){
+                if(b[i] != b[j] && i != j){
+                    c[i]=b[i];
+                }
+               
+            }
+
+        }
+       console.log(c);
+    </script>
+</body>
+</html>
