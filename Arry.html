@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    面试题1数组扁平化和数组去重
     <script>
         let a = [1,2,3,4,5,[1,2,3]];
         let b = [];
@@ -18,18 +19,25 @@
                  b = b.concat(a[i]);
                  break;
                 }
-                b[i] = a[i];
+                b[i] = a[i];//必须要放在判断是否是数组的下面
         }
         for(let i=0; i<b.length; i++){
-            for(let j=0; j<b.length; j++){
-                if(b[i] != b[j] && i != j){
-                    c[i]=b[i];
+            //设置一个新的数组
+            for(let j=0; j<=c.length; j++){
+                if(b[i]==c[j]){
+                   break;
+                } 
+            };
+            //如果没有找到相同的则将赋值给c
+            if(c.length == j){
+                  c[c.length]==b[i]
                 }
-               
-            }
-
         }
-       console.log(c);
+        for(val in c)
+        {
+            console.log(val);
+        }
+       
     </script>
 </body>
 </html>
