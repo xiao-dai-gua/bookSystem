@@ -5,21 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/vue.js"></script>
 </head>
 <body>
-    <div id="app">
-        {{str}}
-    </div>
     <script>
-        var vm = new Vue({
-            el:"#app",
-            data:{
-                str:"hello world"
-            }
-        })
-        console.log(str);
+        let b = [];
+        for(let i=0; i<5; i++){
+            b = i;
+        }
+        console.log(b);
     </script>
-
 </body>
 </html>
