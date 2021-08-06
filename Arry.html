@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    面试题1数组扁平化和数组去重
     <script>
-        let a = [1,2,3,4,5,[1,2,3]];
+        //数组扁平化
+      /*let a = [1,2,3,4,5,[1,2,3]];
         let b = [];
         let c = [];
         for(let i=0; i<a.length; i++){
@@ -18,18 +20,64 @@
                  b = b.concat(a[i]);
                  break;
                 }
-                b[i] = a[i];
+                b[i] = a[i];//必须要放在判断是否是数组的下面
+        }
+        //数组去重
+        for(let i=0; i<b.length; i++){
+            //设置一个新的数组
+            for(let j=0; j<=c.length; j++){
+                if(b[i]==c[j]){
+                   break;
+                } 
+            };
+            //如果没有找到相同的则将赋值给c
+            if(c.length == j){
+                  c[c.length]==b[i]
+                }
+        }
+        for(val in c)
+        {
+            console.log(val);
+        } */
+       /*  let a = [1,2,3,4,5,[1,2,3]];
+        let b = [];
+        for(let i=0; i<a.length; i++){
+            //查找到二维数组 construct 不能正确显示
+            if(a[i] instanceof Array){
+                console.log("成功找到")
+                 b = b.concat(a[i]);
+                 break;
+                }
+                b[i] = a[i];//必须要放在判断是否是数组的下面
         }
         for(let i=0; i<b.length; i++){
-            for(let j=0; j<b.length; j++){
-                if(b[i] != b[j] && i != j){
-                    c[i]=b[i];
-                }
-               
-            }
-
+            for(let j=i+1; j<=b.length; j++){
+                if(b[i]==b[j]){
+                   b.splice(j,1);
+                } 
+            };
         }
-       console.log(c);
+
+        for(val of b){
+            console.log(val);
+        }
+ */
+        let a = [1,2,3,4,5,[1,2,3]];
+        let b = [];
+        let c=[]
+        for(let i=0; i<a.length; i++){
+            //查找到二维数组 construct 不能正确显示
+            if(a[i] instanceof Array){
+                console.log("成功找到")
+                 b = b.concat(a[i]);
+                 break;
+                }
+                b[i] = a[i];//必须要放在判断是否是数组的下面
+        }
+        c =Array.from(new Set(b))
+        for(val of c){
+            console.log(val);
+        }
     </script>
 </body>
 </html>
