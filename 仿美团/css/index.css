@@ -1,0 +1,53 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    font-family:"helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 28px;/*此处不用导入文件的话根元素父元素都是HTML*/
+}
+.header
+{
+    display: flex;
+    background-color: #FFD000;
+    text-align: center;
+   /* border: 1px solid #000;
+    /*
+    display:-webkit-flex;wb浏览器使用
+    display:-moz-flex;火狐浏览器
+    此种写法是为了解决c3中对浏览器的兼容性的问题添加的前缀
+    */
+}
+.header .city
+{
+    width: 180px;
+    height: 101px;
+    line-height: 101px;
+}
+.header .mine
+{
+    width: 94px;
+    height: 101px;
+    line-height:101px ;
+}
+
+.header .search-box 
+{
+    flex: 1;
+
+   border-radius: 0.18rem;
+    height: 0.64rem;
+    margin-top:2rem ;
+    line-height:0.64rem ;
+    /*border-radius: 18px;
+    height:64px ;
+    margin: 20px;
+    line-height: 64px;*/
+    opacity: 0.9;
+    background-color: #FFFFFF;
+    color:#999999;
+    
+
+}
