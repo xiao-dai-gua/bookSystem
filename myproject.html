@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .click{
+           background-color: rgba(169, 169, 169, 0.199);
+        }
+        #app{
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content:center;
+            flex-direction: column;
+        }
+        .text-con{
+            margin-bottom: 30px;
+        }
+        .search{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="text-con">
+    <div class="search">
+    <input type="text" placeholder="请输入查询内容" v-model="search">
+    <button @click="searchaction" >搜索</button>
+    </div>
+    <div>
+        <!-- v-model将输出框的值定义在赋值的这个值里面但是必须提前在data中定义一下 -->
+        <input type="text" placeholder="请输入商品名称" v-model="title">
+        <input type="text" placeholder="请输入商品价格" v-model="price">
+        <button @click="add">添加</button>
+    </div>
+    </div>
+        <div>
+        <table border="2">
+
+            <tr>
+                <th>#</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>操作</th>
+            </tr>
+
+            <!-- 注意这里是in 也可以是 of 最好是of 不混淆js中的 -->
+            <tr v-for="item in shoplist"  v-bind:class="{click:item.isCheck}" @click="deleteshop(item.id)">
+                <template>
+                    <!-- 没有点击搜索的时候所有商品信息 -->
+                    <!-- 如果没有加上id效果就会不一样真的 -->
+                <td><input type="checkbox" name="" id="" v-bind:checked="item.isCheck"></td>
+                <td>{{item.title}}</td>
+                <td>{{item.price}}</td>
+                <td><button @click.stop="delete1(item.id)">删除</button></td>
+                </template>
+            </tr>
+            <tr>
+                <td>总价</td>
+                <td>{{num}}</td>
+                <td><button @click="deleteall">删除被选中</button></td>
+            </tr>
+            
+
+        </table>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                click:"",
+                id:0,
+                num:"",
+                choose:"",
+                search:"",
+                title:"",
+                price:"",
+                searchlist:"",
+                shoplist: [
+                        {
+                            id: 1001,
+                            title: "衣服",
+                            price: 100,
+                            isCheck: false
+                        },
+                        {
+                            id: 1002,
+                            title: "裤子",
+                            price: 200,
+                            isCheck:false
+                        },
+                        {
+                            id: 1003,
+                            title: "鞋子",
+                            price: 300,
+                            isCheck: false
+                        }
+                    ]
+            },
+            methods: {
+                searchaction(e){
+                    // //记住是of 如果是in 输出的是下标
+                    // for(item of this.shoplist){
+                    // if(item.title != this.search)
+                    // {
+                    //     item.isCheck=2;
+                    // }
+                    let newArr = this.shoplist.filter((item, key, arr) => {
+                        if (item.title.includes(this.search)) {
+                            return item
+                        }
+                    })
+                    this.shoplist = newArr
+                },
+                add(){
+                   this.id = this.id +1;
+                   //在进行赋值的时候要注意结构要一致，它是没有办法解构的，除非倒过来可以使用
+                   this.shoplist.push({title:this.title,price:this.price})
+                    
+                },
+                //单行选中
+               //遇到的问题是不知道如何选中我所选中的代码然后进行处理
+                deleteshop(id){
+                    let sum = 0;
+                    this.shoplist.map((item) => {
+                        if (item.id == id) {
+                            item.isCheck = !item.isCheck;
+                        }
+                        if (item.isCheck) {
+                            sum += item.price;
+                        }
+                    })
+                    this.num = sum
+            },
+            //删除操作
+            delete1(id){
+                let newList = this.shoplist.filter((item) => {
+                        if (item.id != id) {
+                            return item
+                        }
+                    })
+                    this.shoplist = newList;
+                    this.sumHandle();
+            },
+            //总计删除
+            deleteall() {
+                    let newArr = this.shoplist.filter((item) => {
+                        if (!item.isCheck) {
+                            return item
+                        }
+                    })
+                    this.shoplist = newArr;
+                    this.sumHandle();
+                },
+
+            //进行求和
+            sumHandle(){
+                let sum = 0;
+                    this.shoplist.map((item) => {
+                        if (item.isCheck) {
+                            sum += item.price
+                        }
+                    })
+                    this.num = sum;
+                }
+            }
+        
+            
+        })
+    </script>
+</body>
+</html>
