@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *
+    {
+        margin:0;
+        padding: 0;
+    }
+    ul
+    {
+        height: 200px;
+        list-style: none;
+        background: chartreuse;
+        /*方向：row row-reverse column column-reverse*/
+        /*align-items:flex-start 默认值flex-end 页面向下
+        | center居中对齐 | baseline |strecth以最大拉升长度拉伸*/
+        display: flex;/*默认横过来排*/
+        /*align-items: flex-start;垂直方向的设置*/
+        /* flex-direction: column;/*纵向排列*/
+        /* flex-direction: column-reverse;/*纵向排列并且反方向排列*/
+       justify-content: center;/* 水平方向的居中 */
+       /*space-between 三个均匀分配相同空格 space-around 分隔不太相同*/
+    
+    }
+    li
+    {
+        width: 100px;
+        height:100px;
+        background: chocolate;
+        border: 1px solid #000;
+    }
+
+</style>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>
