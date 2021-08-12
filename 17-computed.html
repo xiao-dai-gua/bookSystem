@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{firstName}}+{{lastName}}={{fullName}}</h1>
+        <button @click="changeHandle">change firstName</button>
+        <button @click="changeHandle2">change latsName</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                firstName:"Foo",
+                lastName:"Bar"
+            },
+            methods: {
+                changeHandle(){
+                    this.firstName = "Fool"
+                },
+                changeHandle2(){
+                    this.lastName = "Bar2";
+                }
+            },
+            //用于更改因为其他值变化的值
+            //这个参数注意和wathch进行做比较
+            computed:{
+                //多个值影响一个值 直接改变最终的值
+                fullName(){
+                    return this.firstName+" "+this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1
+        {
+            border:1px dashed #000;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+        }
+        #div2
+        {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /*transform可取的值：rotate旋转 translate(位移) scale（缩放）*/
+            transform:rotate(30deg) ;/*30度正数顺时针负数是逆时针*/
+            /*transform: translate(100px);/*位移沿着当前的位置向右走*/
+           /* transform: scale(0.5);/*缩小0.5大于1的数扩大*/
+           /* transform: skew(45deg);/*正方形变成平行四边形*/
+   }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+        </div>
+    </div>
+</body>
+</html>
