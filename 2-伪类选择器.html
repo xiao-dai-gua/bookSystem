@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link{/* 访问之后*/
+            color: tan;
+        }
+        a:visited/*没访问时*/
+        {
+            color:greenyellow ;
+        }
+        a:hover/*鼠标划入*/
+        {
+            color: tomato;
+        }
+        a:active/*鼠标点击的时候*/
+        {
+            color:blue;
+        }
+       /* li:first-child
+        {
+            background-color: chartreuse;
+        }
+        li:last-child
+        {
+            background-color: coral;
+        }*/
+
+        li:nth-child(1)/*标签从1开始选中标签为1的这个标签孩子写零的时候不能选中*/
+        {
+            background-color: crimson;
+        }
+
+        li:nth-child(2n)/*选中偶数的标签2n+1选择奇数*/
+        {
+            background-color: darkcyan;
+        }
+        li:not(:last-child)/*过滤到最后一个元素*/
+        {
+            color:#fff;
+        }
+        #div3::after/*伪类选择器*/
+        {
+            content:"哈哈";
+        }
+        #div3::before
+        {
+            content: "呵呵";
+        }
+        #div3::first-letter/*第一个字符*/
+        {
+            background-color: darksalmon;
+        }
+        #div3::first-line/*第一行*/
+        {
+            color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.baidu.com">baidu</a>
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+    </ul>
+    <button disabled>click</button><!--处于不可用的状态-->
+    <button enabled>click</button><!--处于可用状态-->
+    <div id="div3">div3</div>
+</body>
+</html>

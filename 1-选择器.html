@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*绿色是指之前的css中也有 橙色则表示是css3添加的*/
+        /*  + 加号表示能加上后面紧邻的兄弟元素*/
+        .a + .c
+        {
+            background-color: aquamarine;
+        }
+        /* ~ 选择d 后面所有兄弟元素 两个元素之间必须同属一个父级*/
+        .d ~ li
+        {
+          background-color:red;
+        }
+
+        div[class]
+        {
+            background-color: royalblue;
+        }
+        /*div[class="e"]
+        {
+            background-color:silver;
+        }*/
+
+        div[class*="e"]/* 只要名称中有e的就会都设置成想要的背景*/
+        {
+            background-color: slateblue;
+        }
+        /* div[class^="val"] 选择器以val开头的字符串的元素
+        div[class&="val"] 选择器以val结尾的字符串的元素
+        */
+
+        /* 伪类选择器
+        顺序 ：a:link{}默认的颜色 a:visited{} 访问过
+        a:hover{}鼠标划入 active表示鼠标正在点他的时候
+         */
+    </style>
+</head>
+<body>
+    <div class="a">22</div>
+    <div class="c">11</div>
+    <div class="e">1234567765432</div>
+    <div class="egg">1</div>
+    <ul>
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li class="d">111</li>
+            <li>2222</li>
+        </ul>
+    </ul>
+</body>
+</html>
