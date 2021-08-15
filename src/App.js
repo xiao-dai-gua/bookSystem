@@ -6,10 +6,26 @@ import Home from './views/Home'
 import Navigator from './views/navigator'
 import Redirect_1 from './views/Redirect';
 
+//!无状态function的引入
+import Com from './commpont/Com'
+import Cont from './commpont/Cont';
+import Method from './commpont/Method'
+import {useState} from 'react'
+
 
 function App() {
+  const [isShow,changeShow] = useState(false);
+  const changeFun =()=>{
+    changeShow(!isShow)
+  }
   return (
     <div className="App">
+      <button onClick={changeFun}>切换isshow</button>
+      {
+        isShow?<Com/>:null
+      }
+      <Cont/>
+      <Method/>
        {/* 
           路由匹配 默认模糊匹配
           exact 精确匹配 只有路径完全相同才会被匹配到

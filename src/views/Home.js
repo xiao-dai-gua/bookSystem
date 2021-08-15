@@ -1,6 +1,6 @@
 //Todo rrc 快速生成框架
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+
 
 
 //! ea6语法变量字符串拼接 (`/data/active${params.id}.json`)
